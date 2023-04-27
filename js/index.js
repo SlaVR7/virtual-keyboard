@@ -1,8 +1,4 @@
-import {CreateKey} from "./createElements.js";
-
-const Q = new CreateKey();
-const W = new CreateKey();
-const E = new CreateKey();
+import {row1, row2, row3, row4, row5} from "./createElements.js";
 
 //TITLE
 
@@ -16,8 +12,8 @@ document.body.children[2].className = 'textarea';
 
 //KEYBOARD
 
+document.body.insertAdjacentHTML('beforeend', `<div class="keyboard">${row1}${row2}${row3}${row4}${row5}</div>`);
 
-document.body.insertAdjacentHTML('beforeend', `<div class="main">${Q.getHtml('Q')}${W.getHtml('W')}${E.getHtml('E')}</div>`);
 
 
 
