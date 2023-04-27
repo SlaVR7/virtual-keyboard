@@ -1,0 +1,18 @@
+.title {
+  text-align: center;
+  font-size: 48px;
+}
+
+.textarea {
+  display: block;
+  width: 700px;
+  height: 200px;
+  margin: 0 auto 40px;
+  font-size: 18px;
+}
+
+.main {
+  display: flex;
+  width: 700px;
+  margin: 0 auto;
+}
