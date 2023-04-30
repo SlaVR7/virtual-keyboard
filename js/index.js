@@ -6,6 +6,7 @@ let helpfulKeysCodes = ['Backspace', 'Tab', 'CapsLock', 'Caps Lock', 'Enter', 's
 let str = '';
 
 
+
 function typeTextByKeyboard(event) {
   let button = document.querySelector(`#${event.code}`);
   button.classList.add('hovered');
@@ -42,7 +43,7 @@ function typeByMouse(event) {
   let lowerHelpfulKeyCodes = helpfulKeysCodes.map((item) => item.toLowerCase());
   let content = event.target.innerHTML;
   if (!event.target.getAttribute('id')) return;
-  if (!lowerHelpfulKeyCodes.includes(content)) {
+  if (!lowerHelpfulKeyCodes.includes(content) && !helpfulKeysCodes.includes(content)) {
     str += content;
     textarea.innerText = str;
   }
@@ -51,6 +52,152 @@ function typeByMouse(event) {
     textarea.innerText = str;
   }
 }
+
+function mouseCaps(event) {
+  let caps = document.getElementById('CapsLock');
+  if (event.target.getAttribute('id') === 'CapsLock' && !caps.classList.contains('hovered') && keyboard.contains(row2)) {
+    keyboard.innerHTML = '';
+    keyboard.appendChild(row1Upper);
+    keyboard.appendChild(row2Upper);
+    keyboard.appendChild(row3Upper);
+    keyboard.appendChild(row4Upper);
+    keyboard.appendChild(row5Upper);
+    let caps = document.getElementById('CapsLock');
+    caps.classList.add('hovered');
+  } else if (event.target.getAttribute('id') === 'CapsLock' && caps.classList.contains('hovered') && keyboard.contains(row2Upper)) {
+    keyboard.innerHTML = '';
+    keyboard.appendChild(row1);
+    keyboard.appendChild(row2);
+    keyboard.appendChild(row3);
+    keyboard.appendChild(row4);
+    keyboard.appendChild(row5);
+    let caps = document.getElementById('CapsLock');
+    let shift = document.getElementById('ShiftLeft');
+    caps.classList.remove('hovered');
+    shift.classList.remove('hovered');
+  } else if (event.target.getAttribute('id') === 'CapsLock' && !caps.classList.contains('hovered') && keyboard.contains(row2Rus)) {
+    keyboard.innerHTML = '';
+    keyboard.appendChild(row1RusUpper);
+    keyboard.appendChild(row2RusUpper);
+    keyboard.appendChild(row3RusUpper);
+    keyboard.appendChild(row4RusUpper);
+    keyboard.appendChild(row5RusUpper);
+    let caps = document.getElementById('CapsLock');
+    caps.classList.add('hovered');
+    let shift = document.getElementById('ShiftLeft');
+    shift.classList.remove('hovered');
+  } else if (event.target.getAttribute('id') === 'CapsLock' && caps.classList.contains('hovered') && keyboard.contains(row2RusUpper)) {
+    keyboard.innerHTML = '';
+    keyboard.appendChild(row1Rus);
+    keyboard.appendChild(row2Rus);
+    keyboard.appendChild(row3Rus);
+    keyboard.appendChild(row4Rus);
+    keyboard.appendChild(row5Rus);
+    let caps = document.getElementById('CapsLock');
+    let shift = document.getElementById('ShiftLeft');
+    caps.classList.remove('hovered');
+    shift.classList.remove('hovered');
+  }
+}
+
+document.addEventListener('click', mouseCaps);
+
+function mouseShiftDown(event) {
+  let caps = document.getElementById('CapsLock');
+
+  if ((event.target.getAttribute('id') === 'ShiftLeft' || event.target.getAttribute('id') === 'ShiftRight') && (!caps.classList.contains('hovered')) && keyboard.contains(row2)) {
+    keyboard.innerHTML = '';
+    keyboard.appendChild(row1Upper);
+    keyboard.appendChild(row2Upper);
+    keyboard.appendChild(row3Upper);
+    keyboard.appendChild(row4Upper);
+    keyboard.appendChild(row5Upper);
+    let shift = document.getElementById('ShiftLeft');
+    shift.classList.add('hovered');
+  }
+
+  if ((event.target.getAttribute('id') === 'ShiftLeft' || event.target.getAttribute('id') === 'ShiftRight') && (!caps.classList.contains('hovered')) && keyboard.contains(row2Rus)) {
+    keyboard.innerHTML = '';
+    keyboard.appendChild(row1RusUpper);
+    keyboard.appendChild(row2RusUpper);
+    keyboard.appendChild(row3RusUpper);
+    keyboard.appendChild(row4RusUpper);
+    keyboard.appendChild(row5RusUpper);
+    let shift = document.getElementById('ShiftLeft');
+    shift.classList.add('hovered');
+  }
+
+  if ((event.target.getAttribute('id') === 'ShiftLeft' || event.target.getAttribute('id') === 'ShiftRight') && caps.classList.contains('hovered') && keyboard.contains(row2Upper)) {
+    keyboard.innerHTML = '';
+    keyboard.appendChild(row1);
+    keyboard.appendChild(row2);
+    keyboard.appendChild(row3);
+    keyboard.appendChild(row4);
+    keyboard.appendChild(row5);
+    let caps = document.getElementById('CapsLock');
+    let shift = document.getElementById('ShiftLeft');
+    shift.classList.add('hovered');
+    caps.classList.add('hovered');
+  }
+  if ((event.target.getAttribute('id') === 'ShiftLeft' || event.target.getAttribute('id') === 'ShiftRight') && caps.classList.contains('hovered') && keyboard.contains(row2RusUpper)) {
+    keyboard.innerHTML = '';
+    keyboard.appendChild(row1Rus);
+    keyboard.appendChild(row2Rus);
+    keyboard.appendChild(row3Rus);
+    keyboard.appendChild(row4Rus);
+    keyboard.appendChild(row5Rus);
+    let caps = document.getElementById('CapsLock');
+    let shift = document.getElementById('ShiftLeft');
+    shift.classList.add('hovered');
+    caps.classList.add('hovered');
+  }
+}
+
+function mouseShiftUp(event) {
+  let caps = document.getElementById('CapsLock');
+  if ((event.target.getAttribute('id') === 'ShiftLeft' || event.target.getAttribute('id') === 'ShiftRight') && !caps.classList.contains('hovered') && keyboard.contains(row2Upper)) {
+    keyboard.innerHTML = '';
+    keyboard.appendChild(row1);
+    keyboard.appendChild(row2);
+    keyboard.appendChild(row3);
+    keyboard.appendChild(row4);
+    keyboard.appendChild(row5);
+    let shift = document.getElementById('ShiftLeft');
+    shift.classList.remove('hovered');
+  } else if ((event.target.getAttribute('id') === 'ShiftLeft' || event.target.getAttribute('id') === 'ShiftRight') && !caps.classList.contains('hovered') && keyboard.contains(row2RusUpper)) {
+    keyboard.innerHTML = '';
+    keyboard.appendChild(row1Rus);
+    keyboard.appendChild(row2Rus);
+    keyboard.appendChild(row3Rus);
+    keyboard.appendChild(row4Rus);
+    keyboard.appendChild(row5Rus);
+    let shift = document.getElementById('ShiftLeft');
+    shift.classList.remove('hovered');
+  }
+  if ((event.target.getAttribute('id') === 'ShiftLeft' || event.target.getAttribute('id') === 'ShiftRight') && caps.classList.contains('hovered') && keyboard.contains(row2)) {
+    keyboard.innerHTML = '';
+    keyboard.appendChild(row1Upper);
+    keyboard.appendChild(row2Upper);
+    keyboard.appendChild(row3Upper);
+    keyboard.appendChild(row4Upper);
+    keyboard.appendChild(row5Upper);
+    let shift = document.getElementById('ShiftLeft');
+    shift.classList.remove('hovered');
+  }
+  if ((event.target.getAttribute('id') === 'ShiftLeft' || event.target.getAttribute('id') === 'ShiftRight') && caps.classList.contains('hovered') && keyboard.contains(row2Rus)) {
+    keyboard.innerHTML = '';
+    keyboard.appendChild(row1RusUpper);
+    keyboard.appendChild(row2RusUpper);
+    keyboard.appendChild(row3RusUpper);
+    keyboard.appendChild(row4RusUpper);
+    keyboard.appendChild(row5RusUpper);
+    let shift = document.getElementById('ShiftLeft');
+    shift.classList.remove('hovered');
+  }
+}
+
+document.addEventListener('mousedown', mouseShiftDown);
+document.addEventListener('mouseup', mouseShiftUp);
 
 function keydown(event) {
   if (event.altKey) event.preventDefault();
