@@ -1,85 +1,210 @@
-class CreateKey {
-  constructor() {}
-  getHtml(key, clas) {
-    return `<div class="key ${clas}">${key}</div>`;
+import {row1Array} from "./rows/row1.js";
+import {row2Array} from "./rows/row2.js";
+import {row3Array} from "./rows/row3.js";
+import {row4Array} from "./rows/row4.js";
+import {row5Array} from "./rows/row5.js";
+
+export class CreateKey {
+  name;
+  rusName;
+  code;
+  constructor(name, rusName, code) {
+    this.name = name;
+    this.rusName = rusName;
+    this.code = code;
+  }
+  getButton() {
+    const btn = document.createElement('div');
+    btn.innerHTML = this.name.toLowerCase();
+    btn.classList.add('key');
+    if (this.code === 'ShiftLeft' || this.code === 'ShiftRight') btn.classList.add('middleWidth');
+    if (this.code === 'Space') btn.classList.add('space');
+    if (this.code === 'Tab' || this.code === 'CapsLock' || this.code === 'Backspace' || this.code === 'Enter') btn.classList.add('capsTabWidth');
+    btn.setAttribute('id', this.code);
+    return btn;
+  }
+
+  getUpperButton() {
+    const btn = document.createElement('div');
+    btn.innerHTML = this.name;
+    btn.classList.add('key');
+    if (this.code === 'ShiftLeft' || this.code === 'ShiftRight') btn.classList.add('middleWidth');
+    if (this.code === 'Space') btn.classList.add('space');
+    if (this.code === 'Tab' || this.code === 'CapsLock' || this.code === 'Backspace' || this.code === 'Enter') btn.classList.add('capsTabWidth');
+    btn.setAttribute('id', this.code);
+    return btn;
+  }
+
+  getRusButton() {
+    const btn = document.createElement('div');
+    btn.innerHTML = this.rusName.toLowerCase();
+    btn.classList.add('key');
+    if (this.code === 'ShiftLeft' || this.code === 'ShiftRight') btn.classList.add('middleWidth');
+    if (this.code === 'Space') btn.classList.add('space');
+    if (this.code === 'Tab' || this.code === 'CapsLock' || this.code === 'Backspace' || this.code === 'Enter') btn.classList.add('capsTabWidth');
+    btn.setAttribute('id', this.code);
+    return btn;
+  }
+
+  getUpperRusButton() {
+    const btn = document.createElement('div');
+    btn.innerHTML = this.rusName;
+    btn.classList.add('key');
+    if (this.code === 'ShiftLeft' || this.code === 'ShiftRight') btn.classList.add('middleWidth');
+    if (this.code === 'Space') btn.classList.add('space');
+    if (this.code === 'Tab' || this.code === 'CapsLock' || this.code === 'Backspace' || this.code === 'Enter') btn.classList.add('capsTabWidth');
+    btn.setAttribute('id', this.code);
+    return btn;
   }
 }
 
-let tilda = new CreateKey(),
-  one = new CreateKey(),
-  two = new CreateKey(),
-  three = new CreateKey(),
-  four = new CreateKey(),
-  five = new CreateKey(),
-  six = new CreateKey(),
-  seven = new CreateKey(),
-  eight = new CreateKey(),
-  nine = new CreateKey(),
-  zero = new CreateKey(),
-  minus = new CreateKey(),
-  equally = new CreateKey(),
-  backspace = new CreateKey();
+//CREATE ROW 1
 
-let tab = new CreateKey(),
-  Q = new CreateKey(),
-  W = new CreateKey(),
-  E = new CreateKey(),
-  R = new CreateKey(),
-  T = new CreateKey(),
-  Y = new CreateKey(),
-  U = new CreateKey(),
-  I = new CreateKey(),
-  O = new CreateKey(),
-  P = new CreateKey(),
-  bracketOpen = new CreateKey(),
-  bracketClose = new CreateKey(),
-  leftSlash = new CreateKey();
+export const row1 = document.createElement('div');
+row1Array.forEach((item) => {
+  let qwe = new CreateKey(item.name, item.rusName, item.code);
+  row1.appendChild(qwe.getButton());
+} )
+row1.classList.add('row');
 
-let caps = new CreateKey(),
-  A = new CreateKey(),
-  S = new CreateKey(),
-  D = new CreateKey(),
-  F = new CreateKey(),
-  G = new CreateKey(),
-  H = new CreateKey(),
-  J = new CreateKey(),
-  K = new CreateKey(),
-  L = new CreateKey(),
-  semicolon = new CreateKey(),
-  quote = new CreateKey(),
-  enter = new CreateKey();
+export const row1Upper = document.createElement('div');
+row1Array.forEach((item) => {
+  let qwe = new CreateKey(item.name, item.rusName, item.code);
+  row1Upper.appendChild(qwe.getUpperButton());
+} )
+row1Upper.classList.add('row');
 
-let shift = new CreateKey(),
-  Z = new CreateKey(),
-  X = new CreateKey(),
-  C = new CreateKey(),
-  V = new CreateKey(),
-  B = new CreateKey(),
-  N = new CreateKey(),
-  M = new CreateKey(),
-  comma = new CreateKey(),
-  point = new CreateKey(),
-  rightSlash = new CreateKey(),
-  up = new CreateKey(),
-  rightShift = new CreateKey();
+export const row1Rus = document.createElement('div');
+row1Array.forEach((item) => {
+  let qwe = new CreateKey(item.name, item.rusName, item.code);
+  row1Rus.appendChild(qwe.getRusButton());
+} )
+row1Rus.classList.add('row');
 
-let ctrl = new CreateKey(),
-  win = new CreateKey(),
-  alt = new CreateKey(),
-  space = new CreateKey(),
-  rightAlt = new CreateKey(),
-  left = new CreateKey(),
-  down = new CreateKey(),
-  right = new CreateKey(),
-  rightCtrl = new CreateKey();
+export const row1RusUpper = document.createElement('div');
+row1Array.forEach((item) => {
+  let qwe = new CreateKey(item.name, item.rusName, item.code);
+  row1RusUpper.appendChild(qwe.getUpperRusButton());
+})
+row1RusUpper.classList.add('row');
 
+//CREATE ROW 2
 
-export const row1 = `<div class="row">${tilda.getHtml('~')}${one.getHtml('1')}${two.getHtml('2')}${three.getHtml('3')}${four.getHtml('4')}${five.getHtml('5')}${six.getHtml('6')}${seven.getHtml('7')}${eight.getHtml('8')}${nine.getHtml('9')}${zero.getHtml('0')}${minus.getHtml('-')}${equally.getHtml('=')}${backspace.getHtml('backspace', 'middleWidth')}</div>`;
-export const row2 = `<div class="row">${tab.getHtml('tab', 'capsTabWidth')}${Q.getHtml('Q')}${W.getHtml('W')}${E.getHtml('E')}${R.getHtml('R')}${T.getHtml('T')}${Y.getHtml('Y')}${U.getHtml('U')}${I.getHtml('I')}${O.getHtml('O')}${P.getHtml('P')}${bracketOpen.getHtml('{')}${bracketClose.getHtml('}')}${leftSlash.getHtml('\\')}</div>`;
-export const row3 = `<div class="row">${caps.getHtml('caps lock', 'capsTabWidth')}${A.getHtml('A')}${S.getHtml('S')}${D.getHtml('D')}${F.getHtml('F')}${G.getHtml('G')}${H.getHtml('H')}${J.getHtml('J')}${K.getHtml('K')}${L.getHtml('L')}${semicolon.getHtml(';')}${quote.getHtml('\'')}${enter.getHtml('enter', 'middleWidth')}</div>`;
-export const row4 = `<div class="row">${shift.getHtml('shift', 'middleWidth')}${Z.getHtml('Z')}${X.getHtml('X')}${C.getHtml('C')}${V.getHtml('V')}${B.getHtml('B')}${N.getHtml('N')}${M.getHtml('M')}${comma.getHtml(',')}${point.getHtml('.')}${rightSlash.getHtml('/')}${up.getHtml('▲')}${rightShift.getHtml('shift', 'middleWidth')}</div>`;
-export const row5 = `<div class="row">${ctrl.getHtml('ctrl')}${win.getHtml('win')}${alt.getHtml('alt')}${space.getHtml('space', 'space')}${rightAlt.getHtml('alt')}${left.getHtml('◄')}${down.getHtml('▼')}${right.getHtml('►')}${rightCtrl.getHtml('ctrl')}</div>`;
+export const row2 = document.createElement('div');
+row2Array.forEach((item) => {
+  let qwe = new CreateKey(item.name, item.rusName, item.code);
+  row2.appendChild(qwe.getButton());
+} )
+row2.classList.add('row');
 
+export const row2Upper = document.createElement('div');
+row2Array.forEach((item) => {
+  let qwe = new CreateKey(item.name, item.rusName, item.code);
+  row2Upper.appendChild(qwe.getUpperButton());
+} )
+row2Upper.classList.add('row');
 
+export const row2Rus = document.createElement('div');
+row2Array.forEach((item) => {
+  let qwe = new CreateKey(item.name, item.rusName, item.code);
+  row2Rus.appendChild(qwe.getRusButton());
+} )
+row2Rus.classList.add('row');
 
+export const row2RusUpper = document.createElement('div');
+row2Array.forEach((item) => {
+  let qwe = new CreateKey(item.name, item.rusName, item.code);
+  row2RusUpper.appendChild(qwe.getUpperRusButton());
+})
+row2RusUpper.classList.add('row');
+
+//CREATE ROW 3
+
+export const row3 = document.createElement('div');
+row3Array.forEach((item) => {
+  let qwe = new CreateKey(item.name, item.rusName, item.code);
+  row3.appendChild(qwe.getButton());
+} )
+row3.classList.add('row');
+
+export const row3Upper = document.createElement('div');
+row3Array.forEach((item) => {
+  let qwe = new CreateKey(item.name, item.rusName, item.code);
+  row3Upper.appendChild(qwe.getUpperButton());
+} )
+row3Upper.classList.add('row');
+
+export const row3Rus = document.createElement('div');
+row3Array.forEach((item) => {
+  let qwe = new CreateKey(item.name, item.rusName, item.code);
+  row3Rus.appendChild(qwe.getRusButton());
+} )
+row3Rus.classList.add('row');
+
+export const row3RusUpper = document.createElement('div');
+row3Array.forEach((item) => {
+  let qwe = new CreateKey(item.name, item.rusName, item.code);
+  row3RusUpper.appendChild(qwe.getUpperRusButton());
+})
+row3RusUpper.classList.add('row');
+
+//CREATE ROW 4
+
+export const row4 = document.createElement('div');
+row4Array.forEach((item) => {
+  let qwe = new CreateKey(item.name, item.rusName, item.code);
+  row4.appendChild(qwe.getButton());
+} )
+row4.classList.add('row');
+
+export const row4Upper = document.createElement('div');
+row4Array.forEach((item) => {
+  let qwe = new CreateKey(item.name, item.rusName, item.code);
+  row4Upper.appendChild(qwe.getUpperButton());
+} )
+row4Upper.classList.add('row');
+
+export const row4Rus = document.createElement('div');
+row4Array.forEach((item) => {
+  let qwe = new CreateKey(item.name, item.rusName, item.code);
+  row4Rus.appendChild(qwe.getRusButton());
+} )
+row4Rus.classList.add('row');
+
+export const row4RusUpper = document.createElement('div');
+row4Array.forEach((item) => {
+  let qwe = new CreateKey(item.name, item.rusName, item.code);
+  row4RusUpper.appendChild(qwe.getUpperRusButton());
+})
+row4RusUpper.classList.add('row');
+
+//CREATE ROW 5
+
+export const row5 = document.createElement('div');
+row5Array.forEach((item) => {
+  let qwe = new CreateKey(item.name, item.rusName, item.code);
+  row5.appendChild(qwe.getButton());
+} )
+row5.classList.add('row');
+
+export const row5Upper = document.createElement('div');
+row5Array.forEach((item) => {
+  let qwe = new CreateKey(item.name, item.rusName, item.code);
+  row5Upper.appendChild(qwe.getUpperButton());
+} )
+row5Upper.classList.add('row');
+
+export const row5Rus = document.createElement('div');
+row5Array.forEach((item) => {
+  let qwe = new CreateKey(item.name, item.rusName, item.code);
+  row5Rus.appendChild(qwe.getRusButton());
+} )
+row5Rus.classList.add('row');
+
+export const row5RusUpper = document.createElement('div');
+row5Array.forEach((item) => {
+  let qwe = new CreateKey(item.name, item.rusName, item.code);
+  row5RusUpper.appendChild(qwe.getUpperRusButton());
+})
+row5RusUpper.classList.add('row');
 

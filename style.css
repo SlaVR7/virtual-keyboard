@@ -3,7 +3,7 @@
   font-size: 48px;
 }
 
-.textarea {
+#textarea {
   display: block;
   width: 700px;
   height: 200px;
@@ -12,7 +12,7 @@
 }
 
 .keyboard {
-  width: 700px;
+  width: 720px;
   margin: 0 auto;
   background-color: grey;
   border: 3px solid black;
@@ -39,7 +39,8 @@
   background-color: #ec5757;
 }
 
-.key:active {
+.key:active,
+.hovered {
   transform: scale(0.8);
   background-color: red;
 }
@@ -55,4 +56,10 @@
 .capsTabWidth {
   width: 75px;
 }
+
+.description {
+  text-align: center;
+  font-size: 26px;
+}
+
 
