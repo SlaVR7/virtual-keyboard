@@ -464,7 +464,7 @@ document.body.firstChild.className = 'title';
 // TEXTAREA
 
 document.body.insertAdjacentHTML('beforeend', '<textarea rows="5" cols="50"></textarea>');
-document.body.children[2].setAttribute('id', 'textarea');
+document.body.children[1].setAttribute('id', 'textarea');
 textarea = document.getElementById('textarea');
 
 // KEYBOARD
