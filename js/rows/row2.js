@@ -1,4 +1,4 @@
-export const row2Array = [
+const row2Array = [
   { name: 'Tab', rusName: 'Tab', code: 'Tab' },
   { name: 'Q', rusName: 'Й', code: 'KeyQ' },
   { name: 'W', rusName: 'Ц', code: 'KeyW' },
@@ -12,5 +12,7 @@ export const row2Array = [
   { name: 'P', rusName: 'З', code: 'KeyP' },
   { name: '[', rusName: 'Х', code: 'BracketLeft' },
   { name: ']', rusName: 'Ъ', code: 'BracketRight' },
-  { name: '\\', rusName: '\\', code: 'Backslash' }
-]
+  { name: '\\', rusName: '\\', code: 'Backslash' },
+];
+
+export default row2Array;

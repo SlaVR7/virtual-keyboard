@@ -1,4 +1,4 @@
-export const row3Array = [
+const row3Array = [
   { name: 'Caps Lock', rusName: 'Caps Lock', code: 'CapsLock' },
   { name: 'A', rusName: 'Ф', code: 'KeyA' },
   { name: 'S', rusName: 'Ы', code: 'KeyS' },
@@ -11,5 +11,7 @@ export const row3Array = [
   { name: 'L', rusName: 'Д', code: 'KeyL' },
   { name: ';', rusName: 'Ж', code: 'Semicolon' },
   { name: "'", rusName: 'Э', code: 'Quote' },
-  { name: 'Enter', rusName: 'Enter', code: 'Enter' }
-]
+  { name: 'Enter', rusName: 'Enter', code: 'Enter' },
+];
+
+export default row3Array;
