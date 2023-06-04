@@ -2,7 +2,8 @@ import {
   row1, row2, row3, row4, row5, row1Upper, row2Upper, row3Upper, row4Upper, row5Upper,
   row1Rus, row2Rus, row3Rus, row4Rus, row5Rus, row1RusUpper, row2RusUpper, row3RusUpper,
   row4RusUpper, row5RusUpper,
-} from './createElements.js';
+} from './createElements';
+import '../style.css';
 
 let isShiftActive = false;
 let isCapsActive = false;
